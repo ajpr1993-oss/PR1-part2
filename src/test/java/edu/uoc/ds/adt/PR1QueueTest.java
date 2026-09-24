@@ -12,16 +12,18 @@ import static org.junit.Assert.assertTrue;
 
 public class PR1QueueTest {
     PR1Queue pr1q;
+    PR1MathFunction pr1f;
 
     private void fillQueue() {
-        for (char c = '0'; c < '9'; c++) {
-            pr1q.add(Character.valueOf(c));
+        for (int c = 0; c < 15; c++) {
+            pr1q.add(pr1f.computeValue(c));
 
         }
     }
     @Before
     public void setUp() {
         this.pr1q = new PR1Queue();
+        this.pr1f = new PR1MathFunction();
 
         assertNotNull(this.pr1q.getQueue());
         fillQueue();
@@ -30,55 +32,81 @@ public class PR1QueueTest {
     @After
     public void release() {
         this.pr1q = null;
+        this.pr1f = null;
     }
 
 
     @org.junit.Test
     public void queueTest() {
         assertEquals(this.pr1q.CAPACITY-1, this.pr1q.getQueue().size());
-        Assert.assertEquals(Character.valueOf('0'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('1'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('2'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('3'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('4'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('5'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('6'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('7'), pr1q.poll());
-        Assert.assertEquals(Character.valueOf('8'), pr1q.poll());
+        Assert.assertEquals(2, pr1q.poll());
+        Assert.assertEquals(6, pr1q.poll());
+        Assert.assertEquals(12, pr1q.poll());
+        Assert.assertEquals(20, pr1q.poll());
+        Assert.assertEquals(30, pr1q.poll());
+        Assert.assertEquals(42, pr1q.poll());
+        Assert.assertEquals(56, pr1q.poll());
+        Assert.assertEquals(72, pr1q.poll());
+        Assert.assertEquals(90, pr1q.poll());
+        Assert.assertEquals(110, pr1q.poll());
+        Assert.assertEquals(132, pr1q.poll());
+        Assert.assertEquals(156, pr1q.poll());
+        Assert.assertEquals(182, pr1q.poll());
+        Assert.assertEquals(210, pr1q.poll());
+        Assert.assertEquals(240, pr1q.poll());
         assertEquals(0, this.pr1q.getQueue().size());
     }
 
     @Test
     public void queueTest2() {
 
-        Queue<Character> queue = pr1q.getQueue();
-        Iterator<Character> it = queue.values();
-        assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('0'), it.next());
+        Queue<Integer> queue = pr1q.getQueue();
+        Iterator<Integer> it = queue.values();
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('1'), it.next());
+        assertEquals(Integer.valueOf(2), it.next());
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('2'), it.next());
+        assertEquals(Integer.valueOf(6), it.next());
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('3'), it.next());
+        assertEquals(Integer.valueOf(12), it.next());
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('4'), it.next());
+        assertEquals(Integer.valueOf(20), it.next());
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('5'), it.next());
+        assertEquals(Integer.valueOf(30), it.next());
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('6'), it.next());
+        assertEquals(Integer.valueOf(42), it.next());
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('7'), it.next());
+        assertEquals(Integer.valueOf(56), it.next());
 
         assertTrue(it.hasNext());
-        assertEquals(Character.valueOf('8'), it.next());
+        assertEquals(Integer.valueOf(72), it.next());
+
+        assertTrue(it.hasNext());
+        assertEquals(Integer.valueOf(90), it.next());
+
+        assertTrue(it.hasNext());
+        assertEquals(Integer.valueOf(110), it.next());
+
+        assertTrue(it.hasNext());
+        assertEquals(Integer.valueOf(132), it.next());
+
+        assertTrue(it.hasNext());
+        assertEquals(Integer.valueOf(156), it.next());
+
+        assertTrue(it.hasNext());
+        assertEquals(Integer.valueOf(182), it.next());
+
+        assertTrue(it.hasNext());
+        assertEquals(Integer.valueOf(210), it.next());
+
+        assertTrue(it.hasNext());
+        assertEquals(Integer.valueOf(240), it.next());
 
     }
 

@@ -5,7 +5,7 @@ import edu.uoc.ds.adt.sequential.Stack;
 import edu.uoc.ds.adt.sequential.StackArrayImpl;
 
 public class PR1Stack {
-    public final int CAPACITY = 16;
+    public static final int CAPACITY = 15;
 
     private Stack<Integer> stack;
 

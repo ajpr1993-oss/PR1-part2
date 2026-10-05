@@ -14,7 +14,7 @@ public class PR1Stack {
     }
 
     public void newStack() {
-        stack = new StackArrayImpl<Integer>(CAPACITY);
+        stack = new StackArrayImpl<>(CAPACITY);
     }
 
     public Stack<Integer> getStack() {
